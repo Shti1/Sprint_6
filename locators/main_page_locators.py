@@ -34,3 +34,9 @@ class MainPageLocators:
         6: (By.ID, "accordion__panel-6"),
         7: (By.ID, "accordion__panel-7")
     }
+
+    #Логотип Самоката
+    LOGO_SCOOTER = (By.CSS_SELECTOR, "a.Header_LogoScooter__3lsAR")
+
+    #Логотип Яндекса
+    LOGO_YANDEX = (By.CSS_SELECTOR, "a.Header_LogoYandex__3TSOI")

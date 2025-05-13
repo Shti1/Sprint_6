@@ -27,3 +27,21 @@ class MainPage(BasePage):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(button_locator)
         ).click()
+
+    @allure.step("Нажать на логотип Самоката и проверить переход на главную страницу Самоката")
+    def click_scooter_logo_and_verify(self, main_page_url):
+        self.click_on_element(MainPageLocators.LOGO_SCOOTER)
+        self.wait_for_url(main_page_url)
+        assert self.driver.current_url == main_page_url
+
+    @allure.step(
+        "Нажать на логотип Яндекса и проверить, что в новом окне через редирект открылась главная страница Дзена")
+    def click_yandex_logo_and_verify(self):
+        """Проверяет переход на dzen.ru"""
+        main_window = self.driver.current_window_handle
+        self.click_on_element(MainPageLocators.LOGO_YANDEX)
+
+        WebDriverWait(self.driver, 15).until(lambda d: len(d.window_handles) > 1)
+        self.driver.switch_to.window([w for w in self.driver.window_handles if w != main_window][0])
+
+        WebDriverWait(self.driver, 15).until(lambda d: 'dzen.ru' in d.current_url)

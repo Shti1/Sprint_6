@@ -39,8 +39,3 @@ class OrderPageLocators:
     #Кнопка "Посмотреть статус"
     VIEW_STATUS_BUTTON = (By.XPATH, "//button[contains(@class, 'Button_Button__ra12g Button_Middle__1CSJM') and contains(text(), 'Посмотреть статус')]")
 
-    #Логотип Самоката
-    LOGO_SCOOTER = (By.CSS_SELECTOR, "a.Header_LogoScooter__3lsAR")
-
-    #Логотип Яндекса
-    LOGO_YANDEX = (By.CSS_SELECTOR, "a.Header_LogoYandex__3TSOI")
